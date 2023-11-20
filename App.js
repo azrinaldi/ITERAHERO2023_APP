@@ -22,11 +22,7 @@ const Stack = createNativeStackNavigator();
 
 
 const App = () => {
-
   Firebase.initializeApp()
-
-
-
   return (
     <Provider store={Store}>
       <NavigationContainer>

@@ -24,7 +24,7 @@ const LoginPage = () => {
 
   const navigation = useNavigation();
   const [isLoading, setLoading] = useState(false)
-  
+
   const handleSubmitComplate = (emailValue, passwordValue) => {
     axios.post(loginApi, {
       email: emailValue,
@@ -36,16 +36,18 @@ const LoginPage = () => {
           alert('Email atau Password Salah')
         }
         else {
-          // AsyncStorage.setItem('token', response.data.data.accessToken)
+          //AsyncStorage.setItem('token', response.data.data.accessToken)
           AsyncStorage.setItem('token', response.data.data.accessToken)
             .then(() => {
-              setLoading(false)
               navigation.navigate('SplashScreen')
+            })
+            .finally(()=>{
+              setLoading(false)
             })
         }
       })
+      
   }
-
   useEffect(() => {
     const backAction = () => {
       Alert.alert("Keluar", "Anda yakin ingin keluar ?", [

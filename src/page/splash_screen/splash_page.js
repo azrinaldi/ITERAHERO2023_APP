@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+
 import { View, Image, SafeAreaView,TouchableNativeFeedback } from 'react-native'
 import SplashScreenStyle from './splash_page_style'
 import { useSelector, useDispatch } from 'react-redux';
@@ -36,7 +37,6 @@ const SplashScreen = () => {
       }
     }).catch(() => {
       AsyncStorage.clear()
-
       navigate.navigate('LoginPage')
 
     })
