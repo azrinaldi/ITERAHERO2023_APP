@@ -20,7 +20,7 @@ import {useNavigation} from '@react-navigation/native';
 import Loading from '../../component/loading';
 import CreateBy from '../../component/createBy';
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const navigation = useNavigation();
   const [isLoading, setLoading] = useState(false);
 

@@ -1,17 +1,23 @@
 import {
   CHOICE_MENU_BERANDA,
-  CHOICE_MENU_SCREEN,
-  CHOICE_DETAIL,
+  CHOICE_MENU_GH,
   CHOICE_MENU_TANDON,
+  CHOICE_DETAIL,
+
+  GET_FIRST_GREENHOUSE,
   GET_API_LIST_GREENHOUSE,
-  GET_API_LIST_TANDON,
-  GET_API_DASHBOARD,
   GET_API_GREENHOUSE_BY_ID,
   GET_API_MONITORING_BY_ID,
   GET_API_CONTROLLING_BY_ID,
-  GET_FIRST_DASHBOARD,
-  GET_FIRST_GREENHOUSE,
+  
   GET_FIRST_TANDON,
+  GET_API_LIST_TANDON,
+  GET_API_AKTUATOR_TANDON,
+
+  GET_API_DASHBOARD,
+  GET_FIRST_DASHBOARD,
+  
+  
 } from './action';
 
 const initialState = {
@@ -19,8 +25,12 @@ const initialState = {
   menuGraRi: 'graphic',
   menuGreTa: 'greenhouse',
   menuTandon: 'monitoring',
-  dataListGreenHouse: [],
+
   dataListTandon: [],
+  dataListAktuatorTandon: [],
+
+  dataListGreenHouse: [],
+  
   dataDashboard: [],
   dataGreenHouseById: [],
   dataMonitoringByid: [],
@@ -31,7 +41,7 @@ function userReducer(state = initialState, action) {
   switch (action.type) {
     case CHOICE_MENU_BERANDA:
       return {...state, menuGreTa: action.data};
-    case CHOICE_MENU_SCREEN:
+    case CHOICE_MENU_GH:
       return {...state, menuMoCon: action.data};
     case CHOICE_MENU_TANDON:
       return {...state, menuTandon: action.data};
@@ -51,10 +61,14 @@ function userReducer(state = initialState, action) {
       return {...state, dataListGreenHouse: action.payload};
     case GET_FIRST_DASHBOARD:
       return {...state, dataDashboard: action.payload};
+
+
     case GET_FIRST_TANDON:
       return {...state, dataListTandon: action.payload};
     case GET_API_LIST_TANDON:
       return {...state, dataListTandon: action.data};
+    case GET_API_AKTUATOR_TANDON:
+      return {...state, dataListAktuatorTandon: action.data}
 
     default:
       return state;

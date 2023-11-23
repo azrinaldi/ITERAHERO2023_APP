@@ -18,8 +18,8 @@ import BarPenjadwalan from '../../component/bar_tandon/bar_penjadwalan';
 import BarPeracikan from '../../component/bar_tandon/bar_peracikan';
 
 //Screen
-import MonitoringScreen from '../../screen/tandon_part/monitoring/monitoring_screen';
-import ControllingScreen from '../../screen/tandon_part/controlling/controlling_screen';
+import MonitoringScreenTandon from '../../screen/tandon_part/monitoring/monitoring_screen';
+import ControllingScreenTandon from '../../screen/tandon_part/controlling/controlling_screen';
 import PenjadwalanScreen from '../../screen/tandon_part/penjadwalan/penjadwalan_screen';
 import PeracikanScreen from '../../screen/tandon_part/peracikan/peracikan_screen';
 
@@ -60,7 +60,7 @@ const TandonPage = ({ route, navigation }) => {
     return () => setLoading(true);
   }, []);
 
-
+  console.log("Tandon Page:  ",)
   return (
     <>
       {!isLoading && dataListTandon.status === 'success' ? (
@@ -68,7 +68,7 @@ const TandonPage = ({ route, navigation }) => {
           <StatusBar animated={true} backgroundColor={'#09322D'} />
           <ImageBackground
             resizeMode="cover"
-            source={require('./tandon.jpg')}
+            source={require('../../../assets/images/tandon.jpg')}
             style={styles.container}>
             <View style={styles.imageBackgroundPlus}>
               <TouchableOpacity
@@ -88,28 +88,38 @@ const TandonPage = ({ route, navigation }) => {
               <>
                 <BarMonitoring />
                 <View style={stylesGlobal.enter20} />
-                <MonitoringScreen />
+                <MonitoringScreenTandon
+                  data={{
+                    id: id,
+                    nama: nama,
+                    isOnline: isOnline,
+                    ppm: ppm,
+                    rasioA: rasioA,
+                    rasioB: rasioB,
+                    rasioAir: rasioAir,
+                    status: status,
+                  }} />
               </>
             ) : null}
             {menuTandon == 'controlling' ? (
               <>
                 <BarControlling />
                 <View style={stylesGlobal.enter20} />
-                <ControllingScreen />
+                <ControllingScreenTandon data={{ idData: id }} />
               </>
             ) : null}
             {menuTandon == 'peracikan' ? (
               <>
                 <BarPeracikan />
                 <View style={stylesGlobal.enter20} />
-                <PeracikanScreen />
+                <PeracikanScreen data={{ idData: id }} />
               </>
             ) : null}
             {menuTandon == 'penjadwalan' ? (
               <>
                 <BarPenjadwalan />
                 <View style={stylesGlobal.enter20} />
-                <PenjadwalanScreen />
+                <PenjadwalanScreen data={{ idData: id }} />
               </>
             ) : null}
           </View>

@@ -1,34 +1,41 @@
 import axios from 'axios';
 import {number} from 'yup';
 // import { useNavigation } from "@react-navigation/native"
-export const CHOICE_MENU_SCREEN = 'CHOICE_MENU_SCREEN';
+export const CHOICE_MENU_GH = 'CHOICE_MENU_GH';
 export const CHOICE_MENU_BERANDA = 'CHOICE_MENU_BERANDA';
 export const CHOICE_DETAIL = 'CHOICE_DETAIL';
 export const CHOICE_MENU_TANDON = 'CHOICE_MENU_TANDON';
 export const GET_API_LIST_GREENHOUSE = 'GET_API_LIST_GREENHOUSE';
 
-export const GET_API_LIST_TANDON = 'GET_API_LIST_TANDON';
+
 export const GET_API_DASHBOARD = 'GET_API_DASHBOARD';
 export const GET_API_GREENHOUSE_BY_ID = 'GET_API_GREENHOUSE_BY_ID';
 export const GET_API_MONITORING_BY_ID = 'GET_API_MONITORING_BY_ID';
 export const GET_API_CONTROLLING_BY_ID = 'GET_API_CONTROLLING_BY_ID';
 export const GET_FIRST_GREENHOUSE = 'GET_FIRST_GREENHOUSE';
 export const GET_FIRST_DASHBOARD = 'GET_FIRST_DASHBOARD';
+
+export const GET_API_LIST_TANDON = 'GET_API_LIST_TANDON';
 export const GET_FIRST_TANDON = 'GET_FIRST_TANDON';
+export const GET_API_AKTUATOR_TANDON = 'GET_API_AKTUATOR_TANDON';
 
 import {
-  monitoringApi,
-  greenhouseByUserId,
-  controllingApi,
   dashboardApi,
+  
   listGreenHouse,
+  greenhouseByUserId,
+  monitoringApi,
+  controllingApi,
+
   listTandon,
+  listAktuatorTandon,
+
 } from '../utils/api_link';
 
 // const navigate = useNavigation()
 
 export const setMenuMonotoringControlling = data => ({
-  type: CHOICE_MENU_SCREEN,
+  type: CHOICE_MENU_GH,
   data: data,
 });
 
@@ -55,6 +62,12 @@ export const getApiListTandon = data => ({
   type: GET_API_LIST_TANDON,
   data: data,
 });
+
+// export const getApiAktuatorTandon = data =>({
+//   type: GET_API_AKTUATOR_TANDON,
+//   data: data,
+// });
+
 export const getApiDashboard = data => ({
   type: GET_API_DASHBOARD,
   data: data,
@@ -145,6 +158,7 @@ export const getMonitoringById = (id, token) => {
   };
 };
 
+
 export const getControllingById = (id, token) => {
   return async dispatch => {
     return await axios
@@ -161,3 +175,21 @@ export const getControllingById = (id, token) => {
       });
   };
 };
+
+export const getApiAktuatorTandon = (id, token) =>{
+  return async dispatch => {
+    return await axios
+      .get(listTandon + id+ "/actuator", {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      })
+      .then(({data}) => {
+        dispatch({
+          type: GET_API_AKTUATOR_TANDON,
+          payload: data.data,
+        });
+      });
+  };
+};
+

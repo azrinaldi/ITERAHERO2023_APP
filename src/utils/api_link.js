@@ -11,6 +11,7 @@ export const controllingApi = link + '/actuator?by_greenhouse_id=';
 export const monitoringApi = link + '/sensor?by_id_greenhouse=';
 export const deleteGreenHouse = link + '/greenhouse/';
 export const updateGreenHouse = link + '/greenhouse/';
+
 export const sensorBroker = link + '/sensor_broker?id_sensor=';
 export const grafikSensor = link + '/grafik/';
 export const subGrafikSensor = '?getDateQuery=';
@@ -25,3 +26,4 @@ export const listNotification = link + '/notification?by_user_id=1';
 export const nullCount = link + '/notification-update';
 
 export const listTandon = link + '/tandonUtama';
+export const listAktuatorTandon = link + '/tandonUtama/';

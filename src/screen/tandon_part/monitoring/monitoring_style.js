@@ -12,6 +12,40 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexWrap: 'wrap'
     },
+    cardTandon: {
+        width: '100%',
+        height: 310,
+        backgroundColor: '#ffff',
+        borderRadius: 10,
+        borderColor: '#171717',
+        shadowOpacity: 1,
+        elevation: 1,
+        shadowRadius: 1,
+        marginBottom: 10,
+        padding: 10,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems:'center'
+    },
+    cardFormula: {
+        width: '100%',
+        height: 80,
+        backgroundColor: '#ffff',
+        borderRadius: 10,
+        borderColor: '#171717',
+        shadowOpacity: 1,
+        elevation: 1,
+        shadowRadius: 1,
+        marginBottom: 10,
+        padding: 10,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems:'center'
+    },
+    img: {
+        width: 100,
+        height: 100,
+    }
 
 });
 

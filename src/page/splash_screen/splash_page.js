@@ -10,7 +10,7 @@ import axios from 'axios';
 import { listGreenHouse, dashboardApi, listTandon } from '../../utils/api_link';
 import CreateBy from '../../component/createBy';
 
-const SplashScreen = () => {
+const SplashScreen = (props) => {
 
   const navigate = useNavigation()
 

@@ -11,7 +11,7 @@ import {useSelector} from 'react-redux';
 import stylesGlobal from '../../utils/style_global';
 import styles from './greenhouse_screen_style';
 
-const GreenHouseScreen = () => {
+const GreenHouseScreen = (props) => {
   const navigate = useNavigation();
   const {dataListGreenHouse} = useSelector(state => state.userReducer);
   return (

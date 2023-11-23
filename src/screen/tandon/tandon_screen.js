@@ -7,11 +7,11 @@ import {
   Image,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import stylesGlobal from '../../utils/style_global';
 import styles from './tandon_screen_style';
 
-const TandonScreen = () => {
+const TandonScreen = (props) => {
   const navigate = useNavigation();
 
   const {dataListTandon} = useSelector(state => state.userReducer);
@@ -43,7 +43,7 @@ const TandonScreen = () => {
                       styles.greenHouseCard,
                     ]}>
                     <Image
-                      source={require('./tandon.jpg')}
+                      source={require('../../../assets/images/tandon.jpg')}
                       style={styles.greenHousePicture}
                     />
                     <Text
