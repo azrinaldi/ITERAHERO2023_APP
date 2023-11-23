@@ -16,6 +16,10 @@ const stylesGlobal = StyleSheet.create({
         fontSize: 13,
         fontFamily: 'Montserrat SemiBold 600',
     },
+    header4: {
+        fontSize: 20,
+        fontFamily: 'Montserrat SemiBold 600',
+    },
     subtitle: {
         fontSize: 15,
         fontFamily: 'Poppins-Bold',

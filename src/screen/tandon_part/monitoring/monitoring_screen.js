@@ -36,18 +36,19 @@ const MonitoringScreenTandon = (props) => {
                         ]}>
                             Informasi Tandon
                         </Text>
+                        
                     </View>
 
                     <View style={styles.cardFormula}>
                     <Text style={[
                             stylesGlobal.primer,
-                            stylesGlobal.header2,
+                            stylesGlobal.body1,
                         ]}>
                         Rasio Pupuk
                         </Text>
                         <Text style={[
                             stylesGlobal.secondary,
-                            stylesGlobal.header1ss,
+                            stylesGlobal.header4,
                         ]}>
                         {rasioA} : {rasioB} : {rasioAir} = {ppm}
                         </Text>
