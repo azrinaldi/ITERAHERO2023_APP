@@ -20,7 +20,7 @@ import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   firstDashboard,
-  firstListGreenhouse,
+  firstListGreenHouse,
   firstListTandon,
 } from '../../redux/action';
 import Loading from '../../component/loading';
@@ -68,7 +68,7 @@ const BerandaPage = () => {
     ) {
       AsyncStorage.getItem('token').then(response => {
         dispatch(firstDashboard(response));
-        dispatch(firstListGreenhouse(response));
+        dispatch(firstListGreenHouse(response));
         dispatch(firstListTandon(response));
       });
     }

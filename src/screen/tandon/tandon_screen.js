@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {} from 'react';
 import {
   View,
   ScrollView,
@@ -9,32 +9,13 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import stylesGlobal from '../../utils/style_global';
-import Loading from '../../component/loading';
 import styles from './tandon_screen_style';
-import TandonPage from '../../page/tandon/tandon_page';
 
-const TandonScreen = props => {
+const TandonScreen = () => {
   const navigate = useNavigation();
 
   const {dataListTandon} = useSelector(state => state.userReducer);
 
-  // const { dataListTandon, dataDashboard } = useSelector(
-  //     state => state.userReducer,
-  // );
-  // const id = props.data.idData
-
-  //   const dispatch = useDispatch();
-
-  //   const [isLoading, setIsloading] = useState(true);
-
-  //   const {menuGreTa} = useSelector(state => state.userReducer);
-
-  // useEffect(() => {
-  //     getApiById()
-  //     return () => setIsloading(true)
-  // }, [menuGreTa]);
-
-  // console.log(dataListTandon.data);
   return (
     <View style={[styles.scroll]}>
       <View style={[stylesGlobal.surface, styles.scrollContainer]}>
@@ -48,6 +29,12 @@ const TandonScreen = props => {
                     navigate.navigate('TandonPage', {
                       id: item.id,
                       nama: item.nama,
+                      isOnline: item.isOnline,
+                      ppm: item.ppm,
+                      rasioA: item.rasioA,
+                      rasioB: item.rasioB,
+                      rasioAir: item.rasioAir,
+                      status: item.status,
                     })
                   }>
                   <View

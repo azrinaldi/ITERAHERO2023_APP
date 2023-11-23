@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {} from 'react';
 import {
   View,
   ScrollView,
@@ -7,28 +7,13 @@ import {
   Image,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import stylesGlobal from '../../utils/style_global';
 import styles from './greenhouse_screen_style';
-import Loading from '../../component/loading';
-import GreenHousePage from '../../page/green_house/green_house_page';
-import { TouchableOpacity } from 'react-native';
 
-const GreenHouseScreen = props => {
+const GreenHouseScreen = () => {
   const navigate = useNavigation();
   const {dataListGreenHouse} = useSelector(state => state.userReducer);
-  // const id = props.data.idData
-  // console.log(dataListGreenHouse.data);
-  const dispatch = useDispatch();
-
-  const [isLoading, setIsloading] = useState(true);
-
-  // const {menuGreTa} = useSelector(state => state.userReducer);
-
-  // useEffect(() => {
-  //     getApiById()
-  //     return () => setIsloading(true)
-  // }, [menuGreTa]);
   return (
     <View style={[styles.scroll]}>
       <View style={[stylesGlobal.surface, styles.scrollContainer]}>

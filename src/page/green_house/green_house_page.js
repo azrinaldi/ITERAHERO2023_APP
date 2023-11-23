@@ -19,7 +19,7 @@ import ControllingScreenGH from '../../screen/greenhouse_part/controlling/contro
 
 import {useDispatch, useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {getApiGeenhouseById} from '../../redux/action';
+import {getApiGreenHouseById} from '../../redux/action';
 import Loading from '../../component/loading';
 
 const GreenHousePage = ({route, navigation}) => {
@@ -29,14 +29,14 @@ const GreenHousePage = ({route, navigation}) => {
 
   const dispatch = useDispatch();
 
-  const {menuMoCon, dataGreenhouseById} = useSelector(
+  const {menuMoCon, dataGreenHouseById} = useSelector(
     state => state.userReducer,
   );
 
   const getApiById = () => {
     AsyncStorage.getItem('token')
       .then(respons => {
-        dispatch(getApiGeenhouseById(id, respons));
+        dispatch(getApiGreenHouseById(id, respons));
       })
       .finally(() => setLoading(false));
   };
@@ -46,7 +46,7 @@ const GreenHousePage = ({route, navigation}) => {
   }, []);
   return (
     <>
-      {!isLoading && dataGreenhouseById.status === 'success' ? (
+      {!isLoading && dataGreenHouseById.status === 'success' ? (
         <SafeAreaView style={[stylesGlobal.surface, {flex: 1}]}>
           <StatusBar animated={true} backgroundColor={'#09322D'} />
           <ImageBackground

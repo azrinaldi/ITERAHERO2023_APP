@@ -24,7 +24,7 @@ const BarTandon = () => {
 
                 }}>
                     <Text style={[stylesGlobal.header2, stylesGlobal.surface]}>
-                        Greenhouse
+                        GreenHouse
                     </Text>
                 </TouchableOpacity>
                 <View style={styles.aktifBar}>

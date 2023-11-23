@@ -18,11 +18,11 @@ const initialState = {
   menuMoCon: 'monitoring',
   menuGraRi: 'graphic',
   menuGreTa: 'greenhouse',
-  menuTandon: 'peracikan',
+  menuTandon: 'monitoring',
   dataListGreenHouse: [],
   dataListTandon: [],
   dataDashboard: [],
-  dataGreenhouseById: [],
+  dataGreenHouseById: [],
   dataMonitoringByid: [],
   dataControllingByid: [],
 };
@@ -42,7 +42,7 @@ function userReducer(state = initialState, action) {
     case GET_API_DASHBOARD:
       return {...state, dataDashboard: action.data};
     case GET_API_GREENHOUSE_BY_ID:
-      return {...state, dataGreenhouseById: action.payload};
+      return {...state, dataGreenHouseById: action.payload};
     case GET_API_MONITORING_BY_ID:
       return {...state, dataMonitoringByid: action.payload};
     case GET_API_CONTROLLING_BY_ID:

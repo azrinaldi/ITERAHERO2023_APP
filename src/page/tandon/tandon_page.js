@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -23,26 +23,35 @@ import ControllingScreen from '../../screen/tandon_part/controlling/controlling_
 import PenjadwalanScreen from '../../screen/tandon_part/penjadwalan/penjadwalan_screen';
 import PeracikanScreen from '../../screen/tandon_part/peracikan/peracikan_screen';
 
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {getApiGeenhouseById} from '../../redux/action';
+import { getApiListTandon } from '../../redux/action';
 import Loading from '../../component/loading';
 
-const TandonPage = ({route, navigation}) => {
-  const {id, nama} = route.params;
+const TandonPage = ({ route, navigation }) => {
+  const {
+    id,
+    nama,
+    isOnline,
+    ppm,
+    rasioA,
+    rasioB,
+    rasioAir,
+    status,
+  } = route.params;
 
   const [isLoading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
 
-  const {menuTandon, dataGreenhouseById} = useSelector(
+  const { menuTandon, dataListTandon } = useSelector(
     state => state.userReducer,
   );
 
   const getApiById = () => {
     AsyncStorage.getItem('token')
       .then(respons => {
-        dispatch(getApiGeenhouseById(id, respons));
+        dispatch(getApiListTandon(id, respons));
       })
       .finally(() => setLoading(false));
   };
@@ -50,10 +59,12 @@ const TandonPage = ({route, navigation}) => {
     getApiById();
     return () => setLoading(true);
   }, []);
+
+
   return (
     <>
-      {!isLoading && dataGreenhouseById.status === 'success' ? (
-        <SafeAreaView style={[stylesGlobal.surface, {flex: 1}]}>
+      {!isLoading && dataListTandon.status === 'success' ? (
+        <SafeAreaView style={[stylesGlobal.surface, { flex: 1 }]}>
           <StatusBar animated={true} backgroundColor={'#09322D'} />
           <ImageBackground
             resizeMode="cover"
@@ -65,7 +76,7 @@ const TandonPage = ({route, navigation}) => {
                 onPress={() => navigation.goBack()}>
                 <Icon name="arrow-back" size={24} color="#ffff" />
                 <View style={stylesGlobal.space10} />
-                <Text style={[stylesGlobal.header2, {color: '#ffff'}]}>
+                <Text style={[stylesGlobal.header2, { color: '#ffff' }]}>
                   {nama}
                 </Text>
               </TouchableOpacity>

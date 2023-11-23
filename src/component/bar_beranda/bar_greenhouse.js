@@ -20,7 +20,7 @@ const BarGreenHouse = () => {
             <View style={styles.menuBar}>
                 <View style={styles.aktifBar}>
                     <Text style={[stylesGlobal.header2, stylesGlobal.primer]}>
-                        Greenhouse
+                        GreenHouse
                     </Text>
                 </View>
                 <TouchableOpacity style={styles.nonaktifBar} onPress={() => {

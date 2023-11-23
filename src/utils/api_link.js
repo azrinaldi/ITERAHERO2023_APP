@@ -4,13 +4,13 @@ const link = 'https://iterahero2023.fly.dev/api/v1';
 //const link = 'https://iterahero-e1a0e90da51e.herokuapp.com/api/v1';
 
 export const loginApi = link + '/login';
-export const listGreenhouse = link + '/greenhouse';
+export const listGreenHouse = link + '/greenhouse';
 export const dashboardApi = link + '/dashboard';
 export const greenhouseByUserId = link + '/greenhouse/';
 export const controllingApi = link + '/actuator?by_greenhouse_id=';
 export const monitoringApi = link + '/sensor?by_id_greenhouse=';
-export const deleteGreenhouse = link + '/greenhouse/';
-export const updateGreenhouse = link + '/greenhouse/';
+export const deleteGreenHouse = link + '/greenhouse/';
+export const updateGreenHouse = link + '/greenhouse/';
 export const sensorBroker = link + '/sensor_broker?id_sensor=';
 export const grafikSensor = link + '/grafik/';
 export const subGrafikSensor = '?getDateQuery=';

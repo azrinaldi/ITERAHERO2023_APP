@@ -3,11 +3,11 @@ import React, { useEffect } from 'react'
 import { View, Image, SafeAreaView,TouchableNativeFeedback } from 'react-native'
 import SplashScreenStyle from './splash_page_style'
 import { useSelector, useDispatch } from 'react-redux';
-import { getApiListGreenhouse, getApiDashboard } from '../../redux/action'
+import { getApiListGreenHouse, getApiDashboard } from '../../redux/action'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from "@react-navigation/native"
 import axios from 'axios';
-import { listGreenhouse, dashboardApi, listTandon } from '../../utils/api_link';
+import { listGreenHouse, dashboardApi, listTandon } from '../../utils/api_link';
 import CreateBy from '../../component/createBy';
 
 const SplashScreen = () => {
@@ -43,7 +43,7 @@ const SplashScreen = () => {
 
     AsyncStorage.getItem('token').then(async value => {
       if (value !== null) {
-        await axios.get(listGreenhouse, {
+        await axios.get(listGreenHouse, {
           headers: {
             'Authorization': 'Bearer ' + value
           }
@@ -91,7 +91,7 @@ const SplashScreen = () => {
 
   const next = (response) => {
     try {
-      dispatch(getApiListGreenhouse(response))
+      dispatch(getApiListGreenHouse(response))
     } catch (error) {
       console.log(error)
     } finally {

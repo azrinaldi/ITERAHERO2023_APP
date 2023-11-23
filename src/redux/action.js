@@ -21,7 +21,7 @@ import {
   greenhouseByUserId,
   controllingApi,
   dashboardApi,
-  listGreenhouse,
+  listGreenHouse,
   listTandon,
 } from '../utils/api_link';
 
@@ -47,7 +47,7 @@ export const setGraphicAndHistory = data => ({
   data: data,
 });
 
-export const getApiListGreenhouse = data => ({
+export const getApiListGreenHouse = data => ({
   type: GET_API_LIST_GREENHOUSE,
   data: data,
 });
@@ -60,10 +60,10 @@ export const getApiDashboard = data => ({
   data: data,
 });
 
-export const firstListGreenhouse = token => {
+export const firstListGreenHouse = token => {
   return async dispatch => {
     return await axios
-      .get(listGreenhouse, {
+      .get(listGreenHouse, {
         headers: {
           Authorization: 'Bearer ' + token,
         },
@@ -111,7 +111,7 @@ export const firstDashboard = token => {
   };
 };
 
-export const getApiGeenhouseById = (id, token) => {
+export const getApiGreenHouseById = (id, token) => {
   return async dispatch => {
     return await axios
       .get(greenhouseByUserId + id, {
