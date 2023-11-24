@@ -102,7 +102,7 @@ const BerandaPage = () => {
     );
     return () => backHandler.remove();
   }, []);
-
+  console.log("ini data tandon", dataListTandon.data) 
   console.log("Panjang Data Dashboard", dataDashboard.data)
   console.log("Status Data Dashboard", dataDashboard.status)
   console.log("Panjang Data GreenHouse: ", panjangDataGreenHouse)

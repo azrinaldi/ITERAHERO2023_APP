@@ -19,7 +19,7 @@ const MonitoringScreenTandon = (props) => {
     const rasioA = props.data.rasioA
     const rasioB = props.data.rasioB
     const rasioAir = props.data.rasioAir
-    const status = props.data.statu
+    const status = props.data.status
 
     return (
         <View style={{ height: '70%', width: '100%' }}>
@@ -76,9 +76,8 @@ const MonitoringScreenTandon = (props) => {
                                 <Text>
                                     <Text style={[
                                         stylesGlobal.header3,
-                                        stylesGlobal.primer, // Apply stylesGlobal.primer1 for "Status: "
-                                    ]}>
-                                        Status : 
+                                        stylesGlobal.primer,]}>
+                                        Status :
                                     </Text>
                                     <Text style={[
                                         stylesGlobal.secondary,
@@ -89,19 +88,18 @@ const MonitoringScreenTandon = (props) => {
                                 </Text>)
                                 : (
                                     <Text>
-                                    <Text style={[
-                                        stylesGlobal.header3,
-                                        stylesGlobal.primer, // Apply stylesGlobal.primer1 for "Status: "
-                                    ]}>
-                                        Status :
+                                        <Text style={[
+                                            stylesGlobal.header3,
+                                            stylesGlobal.primer,]}>
+                                            Status :
+                                        </Text>
+                                        <Text style={[
+                                            stylesGlobal.error,
+                                            stylesGlobal.header3
+                                        ]}>
+                                            Offline
+                                        </Text>
                                     </Text>
-                                    <Text style={[
-                                        stylesGlobal.error,
-                                        stylesGlobal.header3
-                                    ]}>
-                                        Offline
-                                    </Text>
-                                </Text>
                                 )}
                         </View>
                         <Text style={[
