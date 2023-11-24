@@ -27,30 +27,50 @@ const MonitoringScreenTandon = (props) => {
     return (
         <View style={{ height: '70%', width: '100%' }}>
             <ScrollView>
+
                 <View style={styles.container}>
                     <View style={styles.cardTandon}>
                         <Text style={[
                             stylesGlobal.primer,
                             stylesGlobal.header2,
-                            
+
                         ]}>
                             Informasi Tandon
                         </Text>
-                        
+                        <View style={styles.icon}>
+                            
+                        </View>
+                        {isOnline ? (
+                        <Text style={[
+                            stylesGlobal.secondary,
+                            stylesGlobal.header3,
+
+                        ]}>
+                            Online
+                        </Text>)
+                            : (
+                        <Text style={[
+                            stylesGlobal.error,
+                            stylesGlobal.header3,
+
+                        ]}>
+                            Offline
+                        </Text>
+                        )}
                     </View>
 
                     <View style={styles.cardFormula}>
-                    <Text style={[
+                        <Text style={[
                             stylesGlobal.primer,
                             stylesGlobal.body1,
                         ]}>
-                        Rasio Pupuk
+                            Rasio Pupuk
                         </Text>
                         <Text style={[
                             stylesGlobal.secondary,
                             stylesGlobal.header4,
                         ]}>
-                        {rasioA} : {rasioB} : {rasioAir} = {ppm}
+                            {rasioA} : {rasioB} : {rasioAir} = {ppm}
                         </Text>
                     </View>
                 </View>
