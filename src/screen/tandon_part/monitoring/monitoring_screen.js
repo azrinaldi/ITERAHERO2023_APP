@@ -2,10 +2,7 @@ import React from "react";
 import {
     View,
     Text,
-    TouchableOpacity,
-    StatusBar,
-    SafeAreaView,
-    ImageBackground,
+    ActivityIndicator,
     Image
 } from 'react-native';
 import styles from "./monitoring_style";
@@ -30,33 +27,51 @@ const MonitoringScreenTandon = (props) => {
 
                 <View style={styles.container}>
                     <View style={styles.cardTandon}>
-                        <Text style={[
-                            stylesGlobal.primer,
-                            stylesGlobal.header2,
+                        {(status == "Kosong" || status == "Ada Isinya") ? (
+                            <Text style={[
+                                stylesGlobal.primer,
+                                stylesGlobal.body2,
 
-                        ]}>
-                            Informasi Tandon
-                        </Text>
+                            ]}>
+                                Tandon saat ini sedang {status}
+                            </Text>
+                        ) : (
+                            <Text style={[
+                                stylesGlobal.primer,
+                                stylesGlobal.body2,
+
+                            ]}>
+                                Sedang Meracik
+                            </Text>
+                        )
+                        }
+                        
                         <View style={styles.icon}>
-                            
+                            <Image style={styles.img}
+                                source={require('./waterTank.png')}
+                            />
                         </View>
                         {isOnline ? (
-                        <Text style={[
-                            stylesGlobal.secondary,
-                            stylesGlobal.header3,
+                            <Text style={[
+                                stylesGlobal.secondary,
+                                stylesGlobal.header3,
 
-                        ]}>
-                            Online
-                        </Text>)
+                            ]}>
+                                Online
+                            </Text>)
                             : (
-                        <Text style={[
-                            stylesGlobal.error,
-                            stylesGlobal.header3,
+                                <Text style={[
+                                    stylesGlobal.error,
+                                    stylesGlobal.header3,
 
-                        ]}>
-                            Offline
-                        </Text>
-                        )}
+                                ]}>
+                                    Offline
+                                </Text>
+                            )}
+
+
+
+
                     </View>
 
                     <View style={styles.cardFormula}>

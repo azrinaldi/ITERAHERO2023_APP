@@ -43,11 +43,10 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     img: {
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 200,
     },
     icon:{
-
     }
 
 });
