@@ -10,11 +10,12 @@ const styles = StyleSheet.create({
         // marginVertical: 20,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+
     },
     cardTandon: {
-        width: '100%',
-        height: 310,
+        width: '60%',
+        height: 200,
         backgroundColor: '#ffff',
         borderRadius: 10,
         borderColor: '#171717',
@@ -25,11 +26,23 @@ const styles = StyleSheet.create({
         padding: 10,
         display: 'flex',
         flexDirection: 'column',
-        alignItems:'center'
+        alignItems:'center',
+        marginRight: 5,
+    },
+    cardSensor: {
+        width: '38%',
+        height: 200,
+        backgroundColor: '#ffff',
+        borderRadius: 10,
+        borderColor: '#171717',
+        shadowOpacity: 1,
+        elevation: 1,
+        shadowRadius: 1,
+        padding: 5,
     },
     cardFormula: {
         width: '100%',
-        height: 80,
+        height: 70,
         backgroundColor: '#ffff',
         borderRadius: 10,
         borderColor: '#171717',
@@ -42,12 +55,23 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems:'center'
     },
+    status:{
+        padding: 4,
+    },
     img: {
+        marginBottom: -10,
         width: 200,
-        height: 200,
+        height: 170,
+    },
+    activityIndicator: {
+        position: 'absolute',
+        top: '38%',
+        left: '48%',
     },
     icon:{
+        alignItems: 'center',
     }
+    
 
 });
 

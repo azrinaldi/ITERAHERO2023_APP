@@ -19,59 +19,108 @@ const MonitoringScreenTandon = (props) => {
     const rasioA = props.data.rasioA
     const rasioB = props.data.rasioB
     const rasioAir = props.data.rasioAir
-    const status = props.data.status
+    const status = props.data.statu
 
     return (
         <View style={{ height: '70%', width: '100%' }}>
             <ScrollView>
-
                 <View style={styles.container}>
                     <View style={styles.cardTandon}>
-                        {(status == "Kosong" || status == "Ada Isinya") ? (
-                            <Text style={[
-                                stylesGlobal.primer,
-                                stylesGlobal.body2,
-
-                            ]}>
-                                Tandon saat ini sedang {status}
-                            </Text>
-                        ) : (
-                            <Text style={[
-                                stylesGlobal.primer,
-                                stylesGlobal.body2,
-
-                            ]}>
-                                Sedang Meracik
-                            </Text>
-                        )
-                        }
-                        
-                        <View style={styles.icon}>
-                            <Image style={styles.img}
-                                source={require('./waterTank.png')}
-                            />
-                        </View>
-                        {isOnline ? (
-                            <Text style={[
-                                stylesGlobal.secondary,
-                                stylesGlobal.header3,
-
-                            ]}>
-                                Online
-                            </Text>)
-                            : (
+                        {(status == "Ada Isinya") ? (
+                            <View style={styles.icon}>
+                                <Image style={styles.img}
+                                    source={require('./waterTank.png')}
+                                />
                                 <Text style={[
-                                    stylesGlobal.error,
+                                    stylesGlobal.primer,
                                     stylesGlobal.header3,
 
                                 ]}>
-                                    Offline
+                                    Tandon berisi
                                 </Text>
+                            </View>
+                        ) : (status === "Kosong") ? (
+                            <View style={styles.icon}>
+                                <Image
+                                    style={styles.img}
+                                    source={require('./waterTank_Empty.png')}
+                                />
+                                <Text style={[
+                                    stylesGlobal.primer,
+                                    stylesGlobal.header3,
+                                ]}>
+                                    Tandon Kosong
+                                </Text>
+                            </View>)
+                            : (
+                                <View style={styles.icon}>
+                                    <Image
+                                        style={styles.img}
+                                        source={require('./waterTank_Load.png')}
+                                    />
+                                    <ActivityIndicator size="large" style={styles.activityIndicator} />
+                                    <Text style={[
+                                        stylesGlobal.primer,
+                                        stylesGlobal.header3,
+
+                                    ]}>
+                                        Sedang Meracik...
+                                    </Text>
+                                </View>
                             )}
+                    </View>
 
+                    <View style={styles.cardSensor}>
+                        <View style={styles.status}>
+                            {isOnline ? (
+                                <Text>
+                                    <Text style={[
+                                        stylesGlobal.header3,
+                                        stylesGlobal.primer, // Apply stylesGlobal.primer1 for "Status: "
+                                    ]}>
+                                        Status : 
+                                    </Text>
+                                    <Text style={[
+                                        stylesGlobal.secondary,
+                                        stylesGlobal.header3
+                                    ]}>
+                                        Online
+                                    </Text>
+                                </Text>)
+                                : (
+                                    <Text>
+                                    <Text style={[
+                                        stylesGlobal.header3,
+                                        stylesGlobal.primer, // Apply stylesGlobal.primer1 for "Status: "
+                                    ]}>
+                                        Status :
+                                    </Text>
+                                    <Text style={[
+                                        stylesGlobal.error,
+                                        stylesGlobal.header3
+                                    ]}>
+                                        Offline
+                                    </Text>
+                                </Text>
+                                )}
+                        </View>
+                        <Text style={[
+                            stylesGlobal.primer,
+                            stylesGlobal.body1,
 
+                        ]}> PPM      : 1200</Text>
 
+                        <Text style={[
+                            stylesGlobal.primer,
+                            stylesGlobal.body1,
 
+                        ]}> PH         : 7</Text>
+
+                        <Text style={[
+                            stylesGlobal.primer,
+                            stylesGlobal.body1,
+
+                        ]}> Suhu    : 30</Text>
                     </View>
 
                     <View style={styles.cardFormula}>
@@ -89,8 +138,8 @@ const MonitoringScreenTandon = (props) => {
                         </Text>
                     </View>
                 </View>
-            </ScrollView>
-        </View>
+            </ScrollView >
+        </View >
 
     )
 };
