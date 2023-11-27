@@ -62,7 +62,7 @@ function userReducer(state = initialState, action) {
     case GET_API_LIST_TANDON:
       return {...state, dataListTandon: action.data};
     case GET_AKTUATOR_TANDON_BY_ID:
-      return {...state, dataAktuatorTandonById: action.data};
+      return {...state, dataAktuatorTandonById: action.payload};
 
     default:
       return state;

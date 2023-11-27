@@ -24,7 +24,6 @@ import Loading from '../../component/loading';
 
 const GreenHousePage = ({route, navigation}) => {
   const {id, name, image} = route.params;
-  console.log({id, name, image});
   const [isLoading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
@@ -44,6 +43,7 @@ const GreenHousePage = ({route, navigation}) => {
     getApiById();
     return () => setLoading(true);
   }, []);
+  console.log("ini data greenhouse", dataGreenHouseById.data)
   return (
     <>
       {!isLoading && dataGreenHouseById.status === 'success' ? (
@@ -70,14 +70,15 @@ const GreenHousePage = ({route, navigation}) => {
               <>
                 <BarMonitoring />
                 <View style={stylesGlobal.enter20} />
-                {/* <MonitoringScreenGH data={{idData: id}} /> */}
+                <MonitoringScreenGH data={{idData: id}} />
+
               </>
             ) : null}
             {menuMoCon === 'controlling' ? (
               <>
                 <BarControlling />
                 <View style={stylesGlobal.enter20} />
-                {/* <ControllingScreenGH data={{idData: id}} /> */}
+                <ControllingScreenGH data={{idData: id}} />
               </>
             ) : null}
           </View>

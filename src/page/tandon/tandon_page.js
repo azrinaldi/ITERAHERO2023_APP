@@ -50,7 +50,7 @@ const TandonPage = ({route, navigation}) => {
     return () => setLoading(true);
   }, []);
 
-  console.log('Tandon Page:  ');
+  
   return (
     <>
       {!isLoading && dataListTandon.status === 'success' ? (

@@ -25,7 +25,7 @@ const LoginPage = (props) => {
   const [isLoading, setLoading] = useState(false);
 
   const handleSubmitComplate = (emailValue, passwordValue) => {
-    console.log(emailValue, passwordValue);
+    // console.log(emailValue, passwordValue);
     axios
       .post(loginApi, {
         email: emailValue,
