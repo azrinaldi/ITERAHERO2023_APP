@@ -2,11 +2,11 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {View, ScrollView, RefreshControl} from 'react-native';
 
 import styles from './controlling_style';
-import CardMonitoring from '../../../component/card_monitoring';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch, useSelector} from 'react-redux';
-import {getAktuatorById} from '../../../redux/action';
+import {getAktuatorTandonById} from '../../../redux/action';
 import Loading from '../../../component/loading';
+import CardAktuatorTandon from '../../../component/card_aktuator_tandon';
 
 const wait = timeout => {
   return new Promise(resolve => {
@@ -49,7 +49,7 @@ const ControllingScreenTandon = props => {
     getApiById();
   }, [menuMoCon]);
 
-  console.log("Data Aktuator Tandon:    ",dataAktuatorTandonById)
+  console.log('Data Aktuator Tandon:    ', dataAktuatorTandonById);
 
   return (
     <>
@@ -59,23 +59,24 @@ const ControllingScreenTandon = props => {
             refreshControl={
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
             }>
-            {dataAktuatorTandonById != undefined
-              ? dataAktuatorTandonById.map(value => {
-                  return (
-                    // <CardMonitoring
-                    //   data={{
-                    //     id: value.id,
-                    //     icon: value.icon,
-                    //     name: value.name,
-                    //     color: value.color,
-                    //     topic_broker: value.topic_broker,
-                    //     updated_at: value.updated_at,
-                    //     status_lifecycle: value.status_lifecycle,
-                    //   }}
-                    // />
-                  );
-                })
-              : null}
+            {dataAktuatorTandonById != undefined ? (
+              dataAktuatorTandonById.map(item => {
+                return (
+                  <CardAktuatorTandon
+                    data={{
+                      id: item.id,
+                      icon: item.icon.logo,
+                      name: item.name,
+                      color: item.icon.color,
+                      updated_at: item.updated_at,
+                      status: item.status,
+                    }}
+                  />
+                );
+              })
+            ) : (
+              <Loading />
+            )}
           </ScrollView>
         </View>
       ) : (
