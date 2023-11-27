@@ -26,6 +26,8 @@ export const listNotification = link + '/notification?by_user_id=1';
 export const nullCount = link + '/notification-update';
 
 export const listTandon = link + '/tandonUtama';
+
 export const AktuatorTandon = link + '/tandonUtama/';
+export const switchAkuatorTandon = link + '/kontrol';
 
 export const listSensor = link + '/logging';
