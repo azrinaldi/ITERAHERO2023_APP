@@ -7,7 +7,6 @@ export const CHOICE_DETAIL = 'CHOICE_DETAIL';
 export const CHOICE_MENU_TANDON = 'CHOICE_MENU_TANDON';
 export const GET_API_LIST_GREENHOUSE = 'GET_API_LIST_GREENHOUSE';
 
-
 export const GET_API_DASHBOARD = 'GET_API_DASHBOARD';
 export const GET_API_GREENHOUSE_BY_ID = 'GET_API_GREENHOUSE_BY_ID';
 export const GET_API_MONITORING_BY_ID = 'GET_API_MONITORING_BY_ID';
@@ -17,19 +16,16 @@ export const GET_FIRST_DASHBOARD = 'GET_FIRST_DASHBOARD';
 
 export const GET_API_LIST_TANDON = 'GET_API_LIST_TANDON';
 export const GET_FIRST_TANDON = 'GET_FIRST_TANDON';
-export const GET_API_AKTUATOR_TANDON = 'GET_API_AKTUATOR_TANDON';
+export const GET_AKTUATOR_TANDON_BY_ID = 'GET_AKTUATOR_TANDON_BY_ID';
 
 import {
   dashboardApi,
-  
   listGreenHouse,
   greenhouseByUserId,
   monitoringApi,
   controllingApi,
-
   listTandon,
-  listAktuatorTandon,
-
+  AktuatorTandon,
 } from '../utils/api_link';
 
 // const navigate = useNavigation()
@@ -62,11 +58,6 @@ export const getApiListTandon = data => ({
   type: GET_API_LIST_TANDON,
   data: data,
 });
-
-// export const getApiAktuatorTandon = data =>({
-//   type: GET_API_AKTUATOR_TANDON,
-//   data: data,
-// });
 
 export const getApiDashboard = data => ({
   type: GET_API_DASHBOARD,
@@ -158,7 +149,6 @@ export const getMonitoringById = (id, token) => {
   };
 };
 
-
 export const getControllingById = (id, token) => {
   return async dispatch => {
     return await axios
@@ -176,17 +166,17 @@ export const getControllingById = (id, token) => {
   };
 };
 
-export const getApiAktuatorTandon = (id, token) =>{
+export const getAktuatorTandonById = (id, token) => {
   return async dispatch => {
     return await axios
-      .get(listTandon + id+ "/actuator", {
+      .get(AktuatorTandon + id + '/actuator', {
         headers: {
           Authorization: 'Bearer ' + token,
         },
       })
       .then(({data}) => {
         dispatch({
-          type: GET_API_AKTUATOR_TANDON,
+          type: GET_AKTUATOR_TANDON_BY_ID,
           payload: data.data,
         });
       });
