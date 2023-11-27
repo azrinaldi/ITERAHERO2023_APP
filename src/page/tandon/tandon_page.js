@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -23,30 +23,20 @@ import ControllingScreenTandon from '../../screen/tandon_part/controlling/contro
 import PenjadwalanScreen from '../../screen/tandon_part/penjadwalan/penjadwalan_screen';
 import PeracikanScreen from '../../screen/tandon_part/peracikan/peracikan_screen';
 
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { getApiListTandon } from '../../redux/action';
+import {getApiListTandon} from '../../redux/action';
 import Loading from '../../component/loading';
 
-const TandonPage = ({ route, navigation }) => {
-  const {
-    id,
-    nama,
-    isOnline,
-    ppm,
-    rasioA,
-    rasioB,
-    rasioAir,
-    status,
-  } = route.params;
+const TandonPage = ({route, navigation}) => {
+  const {id, nama, isOnline, ppm, rasioA, rasioB, rasioAir, status, image} =
+    route.params;
 
   const [isLoading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
 
-  const { menuTandon, dataListTandon } = useSelector(
-    state => state.userReducer,
-  );
+  const {menuTandon, dataListTandon} = useSelector(state => state.userReducer);
 
   const getApiById = () => {
     AsyncStorage.getItem('token')
@@ -60,15 +50,15 @@ const TandonPage = ({ route, navigation }) => {
     return () => setLoading(true);
   }, []);
 
-  console.log("Tandon Page:  ",)
+  console.log('Tandon Page:  ');
   return (
     <>
       {!isLoading && dataListTandon.status === 'success' ? (
-        <SafeAreaView style={[stylesGlobal.surface, { flex: 1 }]}>
+        <SafeAreaView style={[stylesGlobal.surface, {flex: 1}]}>
           <StatusBar animated={true} backgroundColor={'#09322D'} />
           <ImageBackground
             resizeMode="cover"
-            source={require('../../../assets/images/tandon.jpg')}
+            source={{uri: image}}
             style={styles.container}>
             <View style={styles.imageBackgroundPlus}>
               <TouchableOpacity
@@ -76,7 +66,7 @@ const TandonPage = ({ route, navigation }) => {
                 onPress={() => navigation.goBack()}>
                 <Icon name="arrow-back" size={24} color="#ffff" />
                 <View style={stylesGlobal.space10} />
-                <Text style={[stylesGlobal.header2, { color: '#ffff' }]}>
+                <Text style={[stylesGlobal.header2, {color: '#ffff'}]}>
                   {nama}
                 </Text>
               </TouchableOpacity>
@@ -98,28 +88,29 @@ const TandonPage = ({ route, navigation }) => {
                     rasioB: rasioB,
                     rasioAir: rasioAir,
                     status: status,
-                  }} />
+                  }}
+                />
               </>
             ) : null}
             {menuTandon == 'controlling' ? (
               <>
                 <BarControlling />
                 <View style={stylesGlobal.enter20} />
-                <ControllingScreenTandon data={{ idData: id }} />
+                <ControllingScreenTandon data={{idData: id}} />
               </>
             ) : null}
             {menuTandon == 'peracikan' ? (
               <>
                 <BarPeracikan />
                 <View style={stylesGlobal.enter20} />
-                <PeracikanScreen data={{ idData: id }} />
+                <PeracikanScreen data={{idData: id}} />
               </>
             ) : null}
             {menuTandon == 'penjadwalan' ? (
               <>
                 <BarPenjadwalan />
                 <View style={stylesGlobal.enter20} />
-                <PenjadwalanScreen data={{ idData: id }} />
+                <PenjadwalanScreen data={{idData: id}} />
               </>
             ) : null}
           </View>
