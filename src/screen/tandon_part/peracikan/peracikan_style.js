@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     label: {
         color: 'black',
-        width: '15%', // Lebar label
+        width: '20%', // Lebar label
     },
     input: {
         color: 'black',
@@ -31,6 +31,38 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5
     },
+    buttonContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 10,
+    },
+
+    button: {
+        flex: 1, // Set flex to 1 to allow equal space for each button
+        marginRight: 5,
+    },
+
+    buttonRight: {
+        marginLeft: 5,
+    },
+
+    buttonLarge: {
+        fontSize: 18, // Atur ukuran font sesuai keinginan
+    },
+
+    // Tambahkan properti fontSize pada style button50 dan buttonFull jika diperlukan
+    button50: {
+        flex: 0.5,
+        marginRight: 5,
+        fontSize: 18,
+    },
+
+    buttonFull: {
+        flex: 1,
+        fontSize: 18,
+    },
+
+
 });
 
 export default styles
