@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React from 'react';
 import {
   View,
   ScrollView,
@@ -11,11 +11,11 @@ import {useSelector} from 'react-redux';
 import stylesGlobal from '../../utils/style_global';
 import styles from './tandon_screen_style';
 
-const TandonScreen = (props) => {
+const TandonScreen = props => {
   const navigate = useNavigation();
 
   const {dataListTandon} = useSelector(state => state.userReducer);
-
+  console.log('ini gambarnyaaa', dataListTandon.data);
   return (
     <View style={[styles.scroll]}>
       <View style={[stylesGlobal.surface, styles.scrollContainer]}>
@@ -35,6 +35,7 @@ const TandonScreen = (props) => {
                       rasioB: item.rasioB,
                       rasioAir: item.rasioAir,
                       status: item.status,
+                      image: item.image,
                     })
                   }>
                   <View
@@ -43,7 +44,7 @@ const TandonScreen = (props) => {
                       styles.greenHouseCard,
                     ]}>
                     <Image
-                      source={require('../../../assets/images/tandon.jpg')}
+                      source={{uri: item.image}}
                       style={styles.greenHousePicture}
                     />
                     <Text
