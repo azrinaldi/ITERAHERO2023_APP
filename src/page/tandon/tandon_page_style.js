@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     imageBackgroundPlus: {
-        backgroundColor: '( rgba(0, 0, 0, 0.4)',
+        backgroundColor: '(rgba(0, 0, 0, 0.4)',
         flex: 1,
         paddingHorizontal: 20,
         paddingTop: 15,
