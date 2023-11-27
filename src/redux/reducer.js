@@ -3,21 +3,16 @@ import {
   CHOICE_MENU_GH,
   CHOICE_MENU_TANDON,
   CHOICE_DETAIL,
-
   GET_FIRST_GREENHOUSE,
   GET_API_LIST_GREENHOUSE,
   GET_API_GREENHOUSE_BY_ID,
   GET_API_MONITORING_BY_ID,
   GET_API_CONTROLLING_BY_ID,
-  
   GET_FIRST_TANDON,
   GET_API_LIST_TANDON,
-  GET_API_AKTUATOR_TANDON,
-
+  GET_AKTUATOR_TANDON_BY_ID,
   GET_API_DASHBOARD,
   GET_FIRST_DASHBOARD,
-  
-  
 } from './action';
 
 const initialState = {
@@ -27,10 +22,10 @@ const initialState = {
   menuTandon: 'monitoring',
 
   dataListTandon: [],
-  dataListAktuatorTandon: [],
+  dataAktuatorTandonById: [],
 
   dataListGreenHouse: [],
-  
+
   dataDashboard: [],
   dataGreenHouseById: [],
   dataMonitoringByid: [],
@@ -62,13 +57,12 @@ function userReducer(state = initialState, action) {
     case GET_FIRST_DASHBOARD:
       return {...state, dataDashboard: action.payload};
 
-
     case GET_FIRST_TANDON:
       return {...state, dataListTandon: action.payload};
     case GET_API_LIST_TANDON:
       return {...state, dataListTandon: action.data};
-    case GET_API_AKTUATOR_TANDON:
-      return {...state, dataListAktuatorTandon: action.data}
+    case GET_AKTUATOR_TANDON_BY_ID:
+      return {...state, dataAktuatorTandonById: action.data};
 
     default:
       return state;
